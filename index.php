@@ -1,5 +1,10 @@
 <?php
-include 'database.php';
+    session_start();
+
+    if(isset($_SESSION['login'])){
+        header("Location: index.php");
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +38,7 @@ include 'database.php';
                     <label><input type="checkbox">Remember me</label>
                     <a href="#">Forgot Password</a>
                 </div>
-                <button id="loginBtn" type="submit">Login</button>
+                <button id="loginBtn" name="submit" type="submit">Login</button>
                 <div class="register-link">
                     <p>Don't have an account?<a href="registrasi.php"> Register</a></p>
                 </div>

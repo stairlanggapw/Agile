@@ -1,11 +1,21 @@
 <?php
-include 'database.php';
+    include 'database.php';
 
-if(isset($_POST['registrasi'])){
-    $username = $_POST["username"];
-    $email = $_POST["emai"];
-    $passowrd = $_POST["password"];
-}
+    if(isset($_POST['registrasi'])){
+        $username = $_POST["username"];
+        $email = $_POST["emai"];
+        $password = $_POST["password"];
+
+        $sql = "INSERT INT users(username, password) VALUES ('$username', '$email', '$password')";
+    }
+
+    if(isset($_POST['registrasi'])){
+        echo 
+        "<script>
+            alert ('Selamat Akun Anda Sudah Dibuat');
+        </script>";
+        exit();
+    }
 
 ?>
 
@@ -26,21 +36,21 @@ if(isset($_POST['registrasi'])){
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                        <input type="user" name="username" value="<?php echo htmlspecialchars($username ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
+                    <input type="user" name="username" value="<?php echo htmlspecialchars($_POST['$username'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" required>
                     <label>Username</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" name="email" value="<?php echo htmlspecialchars($email ?? '', ENT_QUOTES, 'UTD-8'); ?>" required>
+                    <input type="email" name="email" value="<?php echo htmlspecialchars($_POST['$email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" required> 
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="lock-closed"></ion-icon>
                     </span>
-                    <input type="password" name="password" value="<?php echo htmlspecialchars($passowrd ?? '', ENT_QUOTES, 'UTF-8')?>" required>
+                    <input type="password" name="password" value="<?php echo htmlspecialchars($_POST['$passowrd'] ?? '', ENT_QUOTES, 'UTF-8')?>" required>
                     <label>Password</label>
                 </div>
                 <div class="remember-forgot">

@@ -7,10 +7,3 @@ if (loginBtn) {
     alert('Login Successful');
   })
 }
-
-if (registerBtn) {
-  registerBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    alert('registration successful');
-  })
-}
