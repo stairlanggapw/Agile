@@ -12,11 +12,19 @@ section {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 40px 15px;
     background: url('assets/background.jpg') no-repeat;
     background-size: cover;
     background-position: center;
     animation: animateBg 5s linear infinite;
+}
+
+body {
+    background: url('assets/background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
 }
 
 @keyframes animateBg {
@@ -28,7 +36,9 @@ section {
 .login-box {
     position: relative;
     width: 400px;
-    height: 450px;
+    min-height: 450px;
+    height: auto;
+    padding: 30px 0;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
@@ -36,6 +46,30 @@ section {
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(15px);
+}
+
+.login-box-register {
+    min-height: 520px;
+}
+
+.alert {
+    margin: 15px 0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: .9em;
+    text-align: center;
+}
+
+.alert-success {
+    background: rgba(46, 204, 113, .25);
+    border: 1px solid rgba(46, 204, 113, .8);
+    color: #fff;
+}
+
+.alert-error {
+    background: rgba(231, 76, 60, .25);
+    border: 1px solid rgba(231, 76, 60, .8);
+    color: #fff;
 }
 
 h2 {
@@ -57,7 +91,7 @@ h2 {
     left: 5px;
     transform: translateY(-50%);
     font-size: 1em;
-    color #fff;
+    color: #fff;
     pointer-events: none;
     transition: .5s;
 }

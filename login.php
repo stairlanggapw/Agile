@@ -2,8 +2,26 @@
     session_start();
 
     if(isset($_SESSION['login'])){
-        header("Location: index.php");
+        header("Location: home.php");
         exit;
+    }
+
+    $pesan = "";
+    $pesan_error = "";
+
+    if(isset($_GET['register']) && $_GET['register'] === 'success'){
+        $pesan = "Registrasi berhasil! Silakan login.";
+    }
+
+    $error = $_GET['error'] ?? '';
+    if ($error === 'kosong') {
+        $pesan_error = 'Email/username dan password wajib diisi.';
+    } elseif ($error === 'belum_terdaftar') {
+        $pesan_error = 'Akun tidak ditemukan. Silakan registrasi dulu.';
+    } elseif ($error === 'salah') {
+        $pesan_error = 'Password salah. Coba lagi.';
+    } elseif ($error === 'gagal') {
+        $pesan_error = 'Terjadi kesalahan saat login. Coba lagi.';
     }
 ?>
 
@@ -18,20 +36,30 @@
 <body>
     <section>
         <div class="login-box">
-            <form action="">
+            <form action="proses_login.php" method="POST">
                 <h2>Login</h2>
+                <?php if(!empty($pesan)): ?>
+                    <div class="alert alert-success">
+                        <?php echo htmlspecialchars($pesan, ENT_QUOTES, 'UTF-8'); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if(!empty($pesan_error)): ?>
+                    <div class="alert alert-error">
+                        <?php echo htmlspecialchars($pesan_error, ENT_QUOTES, 'UTF-8'); ?>
+                    </div>
+                <?php endif; ?>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" required>
-                    <label>Email</label>
+                    <input type="text" name="identifier" required>
+                    <label>Email atau Username</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="lock-closed"></ion-icon>
                     </span>
-                    <input type="password" required>
+                    <input type="password" name="password" required>
                     <label>Password</label>
                 </div>
                 <div class="remember-forgot">

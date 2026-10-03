@@ -1,12 +1,13 @@
 <?php
 $hostname = "localhost";
 $username = "root";
-$passowrd = "";
+$password = "";
 $database_name = "web_agile";
 
-$db = mysqli_connect($hostname, $username, $passowrd, $database_name);
+$koneksi = mysqli_connect($hostname, $username, $password, $database_name);
 
-if($db -> connect_error){
+$db = $koneksi;
+
+if (!$koneksi) {
     die("koneksi database gagal:" . mysqli_connect_error());
 }
-?>

@@ -1,9 +1,14 @@
-var loginBtn = document.getElementById('loginbtn');
+var loginBtn = document.getElementById('loginBtn');
 var registerBtn = document.getElementById('registerBtn');
 
 if (loginBtn) {
-  loginBtn.addEventListener('click', function(e){
-    e.preventDefault();
-    alert('Login Successful');
+  loginBtn.addEventListener('click', function(){
+    console.log('Login submitted');
+  })
+}
+
+if (registerBtn) {
+  registerBtn.addEventListener('click', function(){
+    console.log('Register submitted');
   })
 }
