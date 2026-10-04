@@ -18,11 +18,10 @@
 </head>
 <body>
     
-    <div style="background-color: #ff44e6; color: white;">    
-        <h1>Selamat Datang di Halaman Home, <?php echo htmlspecialchars($username, ENT_QUOTES, 'UTF-8'); ?></h1>
-        <p>Ini adalah halaman utama setelah login berhasil.</p>
-        <a href="logout.php">Logout</a>
-    </div>       
+    
+    <!-- <h1>Selamat datang, <?php echo htmlspecialchars($username, ENT_QUOTES, 'UTF-8'); ?>!</h1>
+    <p>Ini adalah halaman home.</p>
+    <a href="logout.php">Logout</a>      -->
 
 </body>
 </html>

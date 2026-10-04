@@ -50,7 +50,7 @@
                     <label>Password</label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Remember me</label>
+                    <label><input type="checkbox" name="remember">Remember me</label>
                 </div>
                 <button id="registerBtn" type="submit" name="registrasi">Register</button>
                 <div class="register-link">

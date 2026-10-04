@@ -63,7 +63,7 @@
                     <label>Password</label>
                 </div>
                 <div class="remember-forgot">
-                    <label><input type="checkbox">Remember me</label>
+                    <label><input type="checkbox" name="remember">Remember me</label>
                     <a href="#">Forgot Password</a>
                 </div>
                 <button id="loginBtn" name="submit" type="submit">Login</button>
