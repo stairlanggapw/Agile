@@ -11,6 +11,4 @@ $db = $koneksi;
 if (!$koneksi) {
     die("koneksi database gagal:" . mysqli_connect_error());
 }
-
-echo "koneksi berhasil";
 ?>
