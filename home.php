@@ -2,6 +2,8 @@
     session_start();
     include 'koneksi.php';
 
+    require_once 'auth.php';
+
     if(!isset($_SESSION['login'])){
         header("Location: login.php");
         exit;
@@ -33,7 +35,6 @@
 </head>
 <body>
     <h1>Selamat Datang di Web Mu <?php echo $username?></h1>
-
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
             <tr style="text-align: center;">
@@ -56,7 +57,7 @@
         }
         ?>
     </table>
-
+    
     <br>
 
     <button><a href="logout.php">Keluar</a></button>

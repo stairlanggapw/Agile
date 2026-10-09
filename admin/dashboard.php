@@ -1,3 +1,7 @@
+<?php
+    require_once '../admin_auth.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,5 +11,6 @@
 </head>
 <body>
     <h1>TES HALO HALO</h1>
+    <button><a href="../logout.php">Keluar</a></button>
 </body>
 </html>
