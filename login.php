@@ -1,8 +1,12 @@
 <?php
     session_start();
 
-    if(isset($_SESSION['login'])){
-        header("Location: home.php");
+    if(isset($_SESSION['login']) && $_SESSION['login'] === true){
+        if (($_SESSION['role'] ?? '') === 'admin') {
+            header("Location: admin/dashboard.php");
+        } else {
+            header("Location: home.php");
+        }
         exit;
     }
 
@@ -19,9 +23,11 @@
     } elseif ($error === 'belum_terdaftar') {
         $pesan_error = 'Akun tidak ditemukan. Silakan registrasi dulu.';
     } elseif ($error === 'salah') {
-        $pesan_error = 'Password salah. Coba lagi.';
+        $pesan_error = 'Username/email atau password salah. Coba lagi.';
     } elseif ($error === 'gagal') {
-        $pesan_error = 'Terjadi kesalahan saat login. Coba lagi.';
+        $pesan_error = 'Username/email atau password salah. Coba lagi.';
+    } elseif ($error === 'internal') {
+        $pesan_error = 'Terjadi kesalahan sistem. Coba lagi.';
     }
 ?>
 
@@ -66,7 +72,7 @@
                     <label><input type="checkbox" name="remember">Remember me</label>
                     <a href="#">Forgot Password</a>
                 </div>
-                <button id="loginBtn" name="submit" type="submit">Login</button>
+                <button id="loginBtn" name="login" type="submit">Login</button>
                 <div class="register-link">
                     <p>Don't have an account?<a href="registrasi.php"> Register</a></p>
                 </div>

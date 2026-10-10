@@ -1,5 +1,5 @@
 <?php
-    require_once '../admin_auth.php';
+    require_once dirname(__DIR__) . '/admin_auth.php';
 ?>
 
 <!DOCTYPE html>

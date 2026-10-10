@@ -30,7 +30,7 @@
 
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = mysqli_prepare($koneksi, "INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+    $query = mysqli_prepare($koneksi, "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')");
     mysqli_stmt_bind_param($query, 'sss', $username, $email, $password_hash);
 
     if(mysqli_stmt_execute($query)){

@@ -1,13 +1,6 @@
 <?php
-    session_start();
-    include 'koneksi.php';
-
-    require_once 'auth.php';
-
-    if(!isset($_SESSION['login'])){
-        header("Location: login.php");
-        exit;
-    }
+    require_once __DIR__ . '/auth.php';
+    require_once __DIR__ . '/koneksi.php';
 
     $query = mysqli_query($koneksi, "SELECT id, username, email FROM users");
 
