@@ -27,7 +27,7 @@ if ($identifier === '' || $password === '') {
 $stmt = mysqli_prepare(
     $koneksi,
     'SELECT id, username, email, password, role
-     FROM users
+     FROM pengguna
      WHERE username = ? OR email = ?
      LIMIT 1'
 );
@@ -61,10 +61,9 @@ $valid = false;
 
 if ($hash !== '' && password_verify($password, $hash)) {
     $valid = true;
-    // Rehash jika algoritma sudah usang
     if (password_needs_rehash($hash, PASSWORD_DEFAULT)) {
         $newHash = password_hash($password, PASSWORD_DEFAULT);
-        $up = mysqli_prepare($koneksi, 'UPDATE users SET password = ? WHERE id = ?');
+        $up = mysqli_prepare($koneksi, 'UPDATE pengguna SET password = ? WHERE id = ?');
         if ($up) {
             mysqli_stmt_bind_param($up, 'si', $newHash, $user['id']);
             mysqli_stmt_execute($up);
@@ -72,20 +71,18 @@ if ($hash !== '' && password_verify($password, $hash)) {
         }
     }
 } elseif ($hash !== '' && hash_equals($hash, md5($password))) {
-    // Migrasi akun lama yang masih simpan MD5 -> upgrade ke bcrypt
     $valid = true;
     $newHash = password_hash($password, PASSWORD_DEFAULT);
-    $up = mysqli_prepare($koneksi, 'UPDATE users SET password = ? WHERE id = ?');
+    $up = mysqli_prepare($koneksi, 'UPDATE pengguna SET password = ? WHERE id = ?');
     if ($up) {
         mysqli_stmt_bind_param($up, 'si', $newHash, $user['id']);
         mysqli_stmt_execute($up);
         mysqli_stmt_close($up);
     }
 } elseif ($hash !== '' && hash_equals($hash, $password)) {
-    // Migrasi akun lama yang masih plain text -> upgrade ke bcrypt
     $valid = true;
     $newHash = password_hash($password, PASSWORD_DEFAULT);
-    $up = mysqli_prepare($koneksi, 'UPDATE users SET password = ? WHERE id = ?');
+    $up = mysqli_prepare($koneksi, 'UPDATE pengguna SET password = ? WHERE id = ?');
     if ($up) {
         mysqli_stmt_bind_param($up, 'si', $newHash, $user['id']);
         mysqli_stmt_execute($up);
@@ -98,11 +95,10 @@ if (!$valid) {
     exit;
 }
 
-// Role kosong (data lama) -> default 'user' dan perbaiki di DB
 $role = trim((string) ($user['role'] ?? ''));
 if ($role === '') {
     $role = 'user';
-    $upRole = mysqli_prepare($koneksi, "UPDATE users SET role = 'user' WHERE id = ?");
+    $upRole = mysqli_prepare($koneksi, "UPDATE pengguna SET role = 'user' WHERE id = ?");
     if ($upRole) {
         mysqli_stmt_bind_param($upRole, 'i', $user['id']);
         mysqli_stmt_execute($upRole);

@@ -15,7 +15,7 @@
         exit();
     }
 
-    $cek = mysqli_prepare($koneksi, "SELECT * FROM users WHERE username = ? OR email = ?");
+    $cek = mysqli_prepare($koneksi, "SELECT * FROM pengguna WHERE username = ? OR email = ?");
     mysqli_stmt_bind_param($cek, 'ss', $username, $email);
     mysqli_stmt_execute($cek);
     $hasil_cek = mysqli_stmt_get_result($cek);
@@ -30,7 +30,7 @@
 
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = mysqli_prepare($koneksi, "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')");
+    $query = mysqli_prepare($koneksi, "INSERT INTO pengguna (username, email, password, role) VALUES (?, ?, ?, 'user')");
     mysqli_stmt_bind_param($query, 'sss', $username, $email, $password_hash);
 
     if(mysqli_stmt_execute($query)){
