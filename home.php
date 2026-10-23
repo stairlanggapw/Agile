@@ -2,7 +2,7 @@
     require_once __DIR__ . '/auth/auth.php';
     require_once __DIR__ . '/koneksi.php';
 
-    $query = mysqli_query($koneksi, "SELECT id, username, email FROM users");
+    $query = mysqli_query($koneksi, "SELECT id, username, email FROM pengguna");
 
     $username = $_SESSION['username'] ?? 'Pengguna';
 ?>
@@ -23,10 +23,13 @@
         body{
             font-family: 'Times New Roman', Times, serif;
             padding: 20px;
+            background-color: purple;
         }
     </style>
 </head>
 <body>
+    <nav></nav>
+
     <h1>Selamat Datang di Web Mu <?php echo $username?></h1>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>

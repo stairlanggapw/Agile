@@ -1,8 +1,8 @@
 <?php
-    require_once dirname(__DIR__) . '/admin_auth.php';
+    require_once dirname(__DIR__) . '/auth/admin_auth.php';
     require_once dirname(__DIR__) . '/koneksi.php';
 
-    $query = mysqli_query($koneksi, "SELECT id, username, email FROM users");
+    $query = mysqli_query($koneksi, "SELECT id, username, email FROM pengguna");
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>TES HALO HALO</h1>
+    <h1>TES HALO ADMIN HALO</h1>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
             <tr style="text-align: center;">
