@@ -11,8 +11,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        
+    </style>
 </head>
 <body>
+    <nav class="navigation"></nav>
     <h1>TES HALO ADMIN HALO</h1>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
