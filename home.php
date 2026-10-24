@@ -116,7 +116,7 @@
             padding: 10px 15px;      
             font-size: 16px;
             border: none;
-            border-radius: 4px 0 0 4px; 
+            border-radius: 5px 0 0 5px; 
             outline: none;
             width: 300px;            
         }
@@ -127,7 +127,7 @@
             color: white;
             font-size: 16px;
             border: none;
-            border-radius: 0 4px 4px 0; 
+            border-radius: 0 5px 5px 0; 
             cursor: pointer;
             transition: background 0.3s ease;
         }
