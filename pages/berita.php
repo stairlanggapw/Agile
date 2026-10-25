@@ -22,7 +22,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #333;
+            background-color: #b80710;
             padding: 8px 10px;
             top: 0;
         }
@@ -56,7 +56,7 @@
             border: none;
             border-radius: 5px;
             padding: 10px;
-            background-color: blue;
+            background-color: white;
         }
 
         .nav-content button a{
@@ -64,7 +64,7 @@
             list-style: none;
             font-size: 12px;
             font-weight: bold;
-            color: white;
+            color: black;
         }
     </style>
 </head>
