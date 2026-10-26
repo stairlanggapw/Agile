@@ -1,15 +1,16 @@
 var loginBtn = document.getElementById('loginBtn');
 var registerBtn = document.getElementById('registerBtn');
 
-document.getElementById('keluar').addEventListener('click', function(){
-  const konfirmasi = confirm("Apakah anda yakin ingin keluar?");
+document.getElementById("keluar").addEventListener("click", function (event) {
+  event.preventDefault();
 
-  if(konfirmasi){
-    localStorage.removeItem('userToken');
+  const yakin = window.confirm("Yakin ingin logout?");
 
-    window.location.href = 'home.php';
+  if (yakin) {
+    alert ("Selamat Anda sudah Logout");
+    window.location.assign("logout.php");
   }
-})
+});
 
 if (loginBtn) {
   loginBtn.addEventListener('click', function(){

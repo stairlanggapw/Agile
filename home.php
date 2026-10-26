@@ -76,7 +76,7 @@
             background-color: #b80710;
             padding: 12px clamp(18px, 4vw, 48px);
             position: sticky;
-            top: 0;
+            top: 0; 
             z-index: 100;
             box-shadow: 0 4px 24px rgba(0, 0, 0, .28);
         }
@@ -285,7 +285,6 @@
             margin: 0 auto;
             background: #121218;
             border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 24px 70px rgba(0, 0, 0, .42);
         }
@@ -311,9 +310,9 @@
 
         .schedule-table thead th{
             padding: 16px 20px;
-            background: #17171f;
+            background: #b80710;
             border-bottom: 1px solid rgba(255, 255, 255, .07);
-            color: #8b8b98;
+            color: white;
             font-size: 10.5px;
             font-weight: 800;
             letter-spacing: .16em;
@@ -464,6 +463,7 @@
         }
 
         .price{
+            text-decoration: none;
             color: #fff;
             font-size: 14.5px;
             font-weight: 800;
@@ -479,6 +479,11 @@
 
         .schedule-table td.cell-action{
             text-align: right;
+        }
+
+        .schedule-table td.cell-action a{
+            text-decoration: none;
+            color: white;
         }
 
         .btn-book{
@@ -851,7 +856,7 @@
             <li><a href="./pages/film.php">Film</a></li>
             <li><a href="./pages/jadwal.php">Jadwal</a></li>
             <li><a href="./pages/berita.php">Berita</a></li>
-            <button id="keluar"><a href="logout.php">Keluar</a></button>
+            <button type="button" id="keluar" onclick="konfirmasiLogout()"><a href="logout.php">Keluar</a></button>
         </ul>
     </nav>
 
@@ -947,7 +952,7 @@
                                             data-title="<?= htmlspecialchars($d['judul_film'], ENT_QUOTES, 'UTF-8') ?>"
                                         >
                                             <ion-icon name="eye"></ion-icon>
-                                            <span>Lihat Detail</span>
+                                            <span><a href="./pages/detail.php">Lihat Detail</a></span>
                                         </button>
                                     </td>
                                 </tr>

@@ -25,49 +25,74 @@
             justify-content: space-between;
             align-items: center;
             background-color: #b80710;
-            padding: 8px 10px;
+            padding: 12px clamp(18px, 4vw, 48px);
+            position: sticky;
             top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, .28);
         }
 
-        .logo{
-            font-size: 15px;
-            font-weight: bold;
+        .logo h2{
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -.02em;
             color: #fff;
+            white-space: nowrap;
         }
 
         .nav-content{
             display: flex;
+            align-items: center;
             list-style: none;
             margin: 0;
             padding: 0;	
+            gap: 4px;
         }
 
         .nav-content li{
-            padding-left: 0;
-	        margin-right: 10px;
+	        margin-right: 0px;
         }
 
         .nav-content li a{
-            padding: 10px;
+            padding: 9px 12px;
             color: white;
+            font-size: 13.5px;
+            font-weight: 600;
             text-decoration: none;
             display: inline-block;
+            border-radius: 8px;
+            transition: background .2s ease, color .2s ease;
+        }
+
+        .nav-content li a:hover{
+            background: rgba(255, 255, 255, .13);
+            color: #fff;
         }
 
         .nav-content button{
             border: none;
-            border-radius: 5px;
-            padding: 10px;
+            border-radius: 8px;
+            padding: 9px 14px;
+            margin-left: 8px;
             background-color: white;
+            cursor: pointer;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .nav-content button:hover{
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
         }
 
         .nav-content button a{
             text-decoration: none;
             list-style: none;
             font-size: 12px;
-            font-weight: bold;
-            color: black;
+            font-weight: 800;
+            color: #9d060d;
+            transition-duration: 0.4s;
         }
+        
     </style>
 </head>
 <body>
