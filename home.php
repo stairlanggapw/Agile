@@ -856,7 +856,7 @@
             <li><a href="./pages/film.php">Film</a></li>
             <li><a href="./pages/jadwal.php">Jadwal</a></li>
             <li><a href="./pages/berita.php">Berita</a></li>
-            <button type="button" id="keluar" onclick="konfirmasiLogout()"><a href="logout.php">Keluar</a></button>
+            <button type="button" id="keluar" onclick="konfirmasiLogout()"><a href="./logout.php">Keluar</a></button>
         </ul>
     </nav>
 
