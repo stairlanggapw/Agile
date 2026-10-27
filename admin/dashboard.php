@@ -2,11 +2,9 @@
     require_once dirname(__DIR__) . '/auth/admin_auth.php';
     require_once dirname(__DIR__) . '/koneksi.php';
 
-    $query = mysqli_query($koneksi, "SELECT id, username, email FROM pengguna");
+    $query = mysqli_query($koneksi, "SELECT id, nama_lengkap, username, email, role, created_at FROM pengguna");
 
     $username = $_SESSION['username'] ?? 'pengguna';
-
-
 ?>
 
 <!DOCTYPE html>
@@ -164,6 +162,31 @@
 
     <section class="hero-section">
         <h1><b>Selamat Datang Di Dashboard Admin <i><?php echo $username?></b></h1>
+        <div class="data-users">
+            <table>
+                <colgroup>
+                    <col style="width: 42%;">
+                    <col style="width: 19%;">
+                    <col style="width: 13%;">
+                    <col style="width: 14%;">
+                    <col style="width: 12%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama Lengkap</th>
+                        <th scope="col">username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col" class="col-role">Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="users">
+                        <td> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <footer class="footer">
