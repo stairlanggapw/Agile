@@ -2,7 +2,12 @@
     require_once dirname(__DIR__) . '/auth/admin_auth.php';
     require_once dirname(__DIR__) . '/koneksi.php';
 
-    $query = mysqli_query($koneksi, "SELECT id, nama_lengkap, username, email, role, created_at FROM pengguna");
+    $sql = "SELECT id, nama_lengkap, username, email, role, created_at FROM pengguna";
+    $query = mysqli_query($koneksi, $sql);
+
+    if(!$query){
+        die("Query gagal: ".mysqli_error($koneksi));
+    }
 
     $username = $_SESSION['username'] ?? 'pengguna';
 ?>
@@ -105,7 +110,40 @@
         }
 
         .hero-section h1{
+            padding-left: 24px;
             color: white;
+        }
+                
+        .data-users {
+            width: 100%;
+            margin: 24px auto;
+            padding: 0 24px;
+            overflow-x: auto;
+        }
+
+        .data-users table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #121218;
+            color: #f1f1f5;
+            text-align: left;
+        }
+
+        .data-users th,
+        .data-users td {
+            padding: 14px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+        }
+
+        .data-users th {
+            background: #b80710;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .data-users td {
+            color: #d1d1da;
         }
 
         .footer {
@@ -161,29 +199,36 @@
     </nav>
 
     <section class="hero-section">
-        <h1><b>Selamat Datang Di Dashboard Admin <i><?php echo $username?></b></h1>
+        <h1><b>Selamat Datang Di Dashboard Admin <i><?php echo $username?></b></h1>        
         <div class="data-users">
             <table>
-                <colgroup>
-                    <col style="width: 42%;">
-                    <col style="width: 19%;">
-                    <col style="width: 13%;">
-                    <col style="width: 14%;">
-                    <col style="width: 12%;">
-                </colgroup>
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Lengkap</th>
-                        <th scope="col">username</th>
-                        <th scope="col">Email</th>
-                        <th scope="col" class="col-role">Role</th>
+                        <th>No</th>
+                        <th>Nama Lengkap</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr class="users">
-                        <td> </td>
-                    </tr>
+                    <?php if (mysqli_num_rows($query) > 0): ?>
+                        <?php $no = 1; ?>
+                        <?php while ($d = mysqli_fetch_assoc($query)): ?>
+                            <tr class="users-row">
+                                <td><?= $no++; ?></td>
+                                <td><?= htmlspecialchars($d['nama_lengkap']); ?></td>
+                                <td><?= htmlspecialchars($d['username']); ?></td>
+                                <td><?= htmlspecialchars($d['email']); ?></td>
+                                <td><?= htmlspecialchars($d['role']); ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="5">Belum ada data pengguna.</td>
+                        </tr>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
