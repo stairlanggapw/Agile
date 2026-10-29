@@ -109,11 +109,35 @@
             transition-duration: 0.4s;
         }
 
-        .hero-section h1{
+        .hero-section{
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .hero-top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-top h1{
             padding-left: 24px;
             color: white;
         }
-                
+
+        .hero-top button{
+            margin-right: 24px;
+            padding: 6px 10px;
+            border-radius: 5px;
+            background-color: #06279d;
+            border: none;
+        }
+
+        .hero-top button a{
+            text-decoration: none;
+            color: white;
+        }     
         .data-users {
             width: 100%;
             margin: 24px auto;
@@ -188,7 +212,7 @@
             <h2>Bioskop Stefanus Suka Mundur</h2>
         </div>
         <ul class="nav-content">
-            <li><a href="home.php">Dashboard</a></li>
+            <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="film.php">Pengaturan Film</a></li>
             <li><a href="jadwal.php">Pengaturan Jadwal</a></li>
             <li><a href="berita.php">Pengaturan Berita</a></li>
@@ -199,7 +223,10 @@
     </nav>
 
     <section class="hero-section">
-        <h1><b>Selamat Datang Di Dashboard Admin <i><?php echo $username?></b></h1>        
+        <div class="hero-top">
+            <h1><b>Selamat Datang Di Dashboard Admin <i><?php echo $username?></b></h1>
+            <button><a href="users.php">Lihat Detail</a></button>  
+        </div>      
         <div class="data-users">
             <table>
                 <thead>
