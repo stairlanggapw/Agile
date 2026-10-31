@@ -1,5 +1,8 @@
 <?php
+    require_once __DIR__ . '/auth/auth.php';
+    require_once __DIR__ . '../koneksi.php';
 
+    $query = mysqli_query($koneksi, "SELECT judul_film, gambar FROM master_film");
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +16,15 @@
     </style>
 </head>
 <body>
-    <span><a href="../home.php"><ion-icon name="arrow-back-circle-outline"></ion-icon></a></span>
-    <h4>Selamat Datang Di Pemesanan Tiket.</h4>
+    <div class="detail-container">
+        <button><a href="../home.php">Back</a></button>
+        <div class="detail-content">
+            <h1>Selamat Datang Di Pemesanan Tiket.</h1>
+            <div class="film-info">
+                <span class="film-title"></span>
+            </div>
+        </div>
+    </div>
 
     <script src="../main.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>

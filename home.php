@@ -27,7 +27,7 @@
     $halaman = min($halaman, $total_pages);
     $offset = ($halaman - 1) * $film_per_page;
 
-    $sql_film = "SELECT master_film.judul_film, master_film.gambar, master_film.genre, master_film.durasi,
+    $sql_film = "SELECT master_film.id_film, master_film.judul_film, master_film.gambar, master_film.genre, master_film.durasi,
                         jadwal_tayang.tanggal_tayang, jadwal_tayang.jam_tayang, jadwal_tayang.studio, jadwal_tayang.harga_tiket
                  FROM jadwal_tayang
                  INNER JOIN master_film ON jadwal_tayang.id_film = master_film.id_film
@@ -946,14 +946,13 @@
                                         </span>
                                     </td>
                                     <td class="cell-action">
-                                        <button
-                                            type="button"
+                                        <a
+                                            href="./pages/detail.php?id_film=<?= (int) $d['id_film'] ?>"
                                             class="btn-book"
-                                            data-title="<?= htmlspecialchars($d['judul_film'], ENT_QUOTES, 'UTF-8') ?>"
                                         >
                                             <ion-icon name="eye"></ion-icon>
-                                            <span><a href="./pages/detail.php">Lihat Detail</a></span>
-                                        </button>
+                                            <span>Lihat Detail</span>
+                                        </a>
                                     </td>
                                 </tr>
                             <?php endwhile; ?>
