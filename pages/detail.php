@@ -1,8 +1,34 @@
 <?php
     require_once __DIR__ . '../auth/auth.php';
     require_once __DIR__ . '../koneksi.php';
+    
+    if (!isset($_GET['id_film']) || !ctype_digit($_GET['id_film'])) {
+        die("Film Tidak Ditemukan.");
+    }
 
-    $query = mysqli_query($koneksi, "SELECT judul_film, gambar FROM master_film");
+    $id_film = (int) $_GET['id_film'];
+
+    $stmt = mysqli_prepare(
+        $koneksi,
+        "SELECT id_, judul_film, gambar FROM master_film WHERE id_film = ?film"
+    );
+
+    mysqli_stmt_bind_param($stmt, "i", $id_film);
+    mysqli_stmt_excute($stmt);
+
+    if (!$film){
+        die("Film Tidak Ditemukan.");
+    };
+
+    $stmt_jadwal = mysqli_prepare(
+        $koneksi,
+        "SELECT tanggal_tayang, jam_tayang, studio, harga_tiket FROM jadwal_t WHERE id_film = ? ORDER BY tanggal_tayang ASC, jam_tayang ASC"
+    );
+
+    mysqli_stmt_bind_param($stmt_jadwal, "i", $id_film);
+    mysqli_stmt_execute($stmt_jadwal);
+
+    $jadwal_query = mysqli_stmt_get_result($stmt_jadwal);
 ?>
 
 <!DOCTYPE html>
