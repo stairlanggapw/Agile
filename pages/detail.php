@@ -46,7 +46,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($film['judul_film']) ?> | Detail Film</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            font-family: "Manrope", sans-serif;
+        }
+
+        body{
+            background-color: #0a0a0d;
+        }
+
+        
     </style>
 </head>
 <body>

@@ -28,10 +28,6 @@
             font-family: "Manrope", sans-serif;
         }
 
-        html{
-            scroll-behavior: smooth;
-        }
-
         body{
             background-color: #0a0a0d;
         }
