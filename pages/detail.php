@@ -57,9 +57,12 @@
 
         body{
             background-color: #0a0a0d;
+            color: white;
         }
 
-        
+        .detail-container{
+            
+        }
     </style>
 </head>
 <body>
@@ -112,9 +115,7 @@
                                     </p>
                                 </div>
 
-                                <a href="#" class="btn-payment">
-                                    Pembayaran
-                                </a>
+                                <button id="btn-paymnt" class="btn-payment">Pembayaran</button>
                             </div>
 
                         <?php endwhile; ?>
