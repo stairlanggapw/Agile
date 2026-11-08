@@ -60,17 +60,78 @@
             color: white;
         }
 
+        .top-detail{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .top-detail button{
+            padding: 5px 8px;
+            background-color: #b80710;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .top-detail button a{
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .top-detail h4{
+            margin-left: 10px;
+        }
+
         .detail-container{
-            
+            display: flex;
+            margin: 8px;
+        }
+
+        .footer {
+            width: 100%;
+            background: #0b0b10;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px 6%;
+            color: #9898a6;
+            font-family: inherit;
+        }
+
+        .footer-content {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-content span:first-child {
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-content span:last-child {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .footer-content ion-icon {
+            font-size: 19px;
+            color: #9898a6;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <div class="top-detail">
+        <button><a href="../home.php">Back</a></button>
+        <h4>Detail Film</h4>
+    </div>
     <div class="detail-container">
-        <div class="top-detail">
-            <button><a href="../home.php">Back</a></button>
-            <h3>Detail Film</h3>
-        </div>
         <div class="detail-container">
             <div>
                 <img
@@ -127,6 +188,17 @@
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span>&copy; <?= date('Y') ?> stairlanggapw. All rights reserved.</span>
+            <span>
+                <ion-icon name="logo-instagram"></ion-icon> 
+                <ion-icon name="logo-facebook"></ion-icon> 
+                <ion-icon name="logo-x"></ion-icon>
+            </span>
+        </div>
+    </footer>
 
     <script src="../main.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
