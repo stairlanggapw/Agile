@@ -111,12 +111,30 @@
             margin-top: 10px;
         }
 
-        .btn-payment{
+        .btn-payment {
             margin-top: 5px;
             padding: 5px 10px;
             border: none;
             border-radius: 5px;
-            background-color: #9898a6;
+            font-weight: bold;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: 
+                background-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.2s ease;
+        }
+
+        .btn-payment:hover {
+            background-color: #ebebeb;
+            box-shadow: 0 4px 12px rgba(152, 152, 166, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-payment:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(152, 152, 166, 0.3);
         }
 
         .btn-trailer{
@@ -124,7 +142,25 @@
             padding: 5px 10px;
             border: none;
             border-radius: 5px;
-            background-color: #9898a6;
+            font-weight: bold;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: 
+                background-color 0.3s ease,
+                box-shadow 0.3s ease,
+                transform 0.2s ease;
+        }
+
+        .btn-trailer:hover{
+            background-color: #ebebeb;
+            box-shadow: 0 4px 12px rgba(152, 152, 166, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-trailer:active{
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(152, 152, 166, 0.3);
         }
 
         .footer {
