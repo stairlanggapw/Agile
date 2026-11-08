@@ -87,7 +87,44 @@
 
         .detail-container{
             display: flex;
-            margin: 8px;
+            align-items: center;
+            margin: 15px;
+            gap: 20px;
+        }
+
+        .poster{
+            height: 500px;
+            border: 5px solid #b80710;
+            border-radius: 20px;
+        }
+
+        .film-info{
+            margin: 0;
+            padding: 10px;
+        }
+
+        .schedule{
+            margin-top: 30px;
+        }
+
+        .schedule-item{
+            margin-top: 10px;
+        }
+
+        .btn-payment{
+            margin-top: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #9898a6;
+        }
+
+        .btn-trailer{
+            margin-top: 5px;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #9898a6;
         }
 
         .footer {
@@ -132,59 +169,58 @@
         <h4>Detail Film</h4>
     </div>
     <div class="detail-container">
-        <div class="detail-container">
-            <div>
-                <img
-                    class="poster"
-                    src="../assets/img/<?= htmlspecialchars($film['gambar']) ?>"
-                    alt="<?= htmlspecialchars($film['judul_film']) ?>"
-                >
-            </div>
+        <div>
+            <img
+                class="poster"
+                src="../assets/img/<?= htmlspecialchars($film['gambar']) ?>"
+                alt="<?= htmlspecialchars($film['judul_film']) ?>"
+            >
+        </div>
 
-            <div class="film-info">
-                <h1><?= htmlspecialchars($film['judul_film']) ?></h1>
+        <div class="film-info">
+            <h1><?= htmlspecialchars($film['judul_film']) ?></h1>
 
-                <p>Genre: <?= htmlspecialchars($film['genre']) ?></p>
-                <p>Durasi: <?= (int) $film['durasi'] ?> menit</p>
+            <p>Genre: <?= htmlspecialchars($film['genre']) ?></p>
+            <p>Durasi: <?= (int) $film['durasi'] ?> menit</p>
 
-                <div class="schedule">
-                    <h2>Pilih Jadwal Tayang</h2>
+            <div class="schedule">
+                <h2>Pilih Jadwal Tayang</h2>
 
-                    <?php if (mysqli_num_rows($jadwal_query) > 0): ?>
-                        <?php while ($jadwal = mysqli_fetch_assoc($jadwal_query)): ?>
+                <?php if (mysqli_num_rows($jadwal_query) > 0): ?>
+                    <?php while ($jadwal = mysqli_fetch_assoc($jadwal_query)): ?>
 
-                            <div class="schedule-item">
-                                <div>
-                                    <p>
-                                        Tanggal:
-                                        <?= htmlspecialchars($jadwal['tanggal_tayang']) ?>
-                                    </p>
+                        <div class="schedule-item">
+                            <div>
+                                <p>
+                                    Tanggal:
+                                    <?= htmlspecialchars($jadwal['tanggal_tayang']) ?>
+                                </p>
 
-                                    <p>
-                                        Jam:
-                                        <?= htmlspecialchars($jadwal['jam_tayang']) ?>
-                                    </p>
+                                <p>
+                                    Jam:
+                                    <?= htmlspecialchars($jadwal['jam_tayang']) ?>
+                                </p>
 
-                                    <p>
-                                        Studio:
-                                        <?= htmlspecialchars($jadwal['studio']) ?>
-                                    </p>
+                                <p>
+                                    Studio:
+                                    <?= htmlspecialchars($jadwal['studio']) ?>
+                                </p>
 
-                                    <p>
-                                        Harga:
-                                        Rp <?= number_format((int) $jadwal['harga_tiket'], 0, ',', '.') ?>
-                                    </p>
-                                </div>
-
-                                <button id="btn-paymnt" class="btn-payment">Pembayaran</button>
+                                <p>
+                                    Harga:
+                                    Rp <?= number_format((int) $jadwal['harga_tiket'], 0, ',', '.') ?>
+                                </p>
                             </div>
 
-                        <?php endwhile; ?>
-                    <?php else: ?>
-                        <p>Belum ada jadwal tayang untuk film ini.</p>
-                    <?php endif; ?>
+                            <button id="btn-paymnt" class="btn-payment">Pembayaran</button>
+                            <button id="btn-trailer" class="btn-trailer">Tonton Trailer</button>
+                        </div>
 
-                </div>
+                <?php endwhile; ?>
+                <?php else: ?>
+                     <p>Belum ada jadwal tayang untuk film ini.</p>
+                <?php endif; ?>
+
             </div>
         </div>
     </div>
