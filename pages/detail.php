@@ -197,6 +197,233 @@
             color: #9898a6;
             cursor: pointer;
         }
+
+        .purchaseModal,
+        .successModal{
+            font-family: "Manrope", sans-serif;
+            position:fixed;
+            inset:0;
+            display:none;
+            justify-content:center;
+            align-items:center;
+            padding:20px;
+            background:rgba(0,0,0,.65);
+            backdrop-filter:blur(10px);
+            z-index:9999;
+        }
+
+        .modalCard{
+            width:100%;
+            max-width:720px;
+            background: #5a5a5bff;
+            border-radius:25px;
+            padding:40px;
+            position:relative;
+            animation:popup .35s;
+        }
+
+        .closeModal{
+            position:absolute;
+            top:20px;
+            right:25px;
+            font-size:35px;
+            cursor:pointer;
+        }
+
+        .modalSubtitle{
+            color:#777;
+            margin-bottom:30px;
+        }
+
+        .inputGrid{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:20px;
+        }
+
+        .inputGroup{
+            display:flex;
+            flex-direction:column;
+            margin-bottom:20px;
+        }
+
+        .inputGroup label{
+            margin-bottom:8px;
+            font-weight:600;
+        }
+
+        .inputGroup input,
+        .inputGroup textarea,
+        .inputGroup select{
+
+            width:100%;
+            padding:15px;
+            border-radius:12px;
+            border:1px solid #ddd;
+            outline:none;
+        }
+
+        .inputGroup textarea{
+            resize:none;
+        }
+
+        .purchaseBtn{
+            width:100%;
+            padding:18px;
+            border:none;
+            border-radius:50px;
+            background:#b80710;
+            color:white;
+            font-size:17px;
+            cursor:pointer;
+        }
+
+        .purchaseBtn:hover{
+            background:#e03f47ff;
+        }
+
+        .successCard{
+            width:100%;
+            max-width:520px;
+            background:#ffffff;
+            border-radius:25px;
+            padding:40px;
+            position:relative;
+            text-align:center;
+            animation:popup .35s;
+            box-shadow:0 20px 50px rgba(0,0,0,.25);
+            overflow:hidden;
+        }
+
+        .successCard::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:6px;
+            background:linear-gradient(
+                90deg,
+                #2E7D32,
+                #43A047,
+                #66BB6A
+            );
+        }
+
+        .successIcon{
+            display:flex;
+            justify-content:center;
+            margin-bottom:20px;
+        }
+
+        .successGif{
+            width:150px;
+            display:block;
+        }
+
+        .successCard h2{
+            font-size:34px;
+            color:#2E7D32;
+            margin-bottom:10px;
+        }
+
+        .successText{
+            color:#666;
+            margin-bottom:30px;
+        }
+
+        .paymentInfo,
+        .productInfo{
+            background:#f8f8f8;
+            border-radius:18px;
+            padding:20px;
+            margin-bottom:20px;
+            text-align:left;
+        }
+
+        .paymentInfo h3,
+        .productInfo h3{
+            color:#2E7D32;
+            margin-bottom:15px;
+        }
+
+        .detailItem{
+            display:flex;
+            justify-content:space-between;
+            margin:12px 0;
+        }
+
+        .paid{
+            color:#2E7D32;
+            font-weight:bold;
+        }
+
+        #closeSuccess{
+            width:100%;
+            padding:15px;
+            border:none;
+            border-radius:50px;
+            background:#2E7D32;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        #closeSuccess:hover{
+            background:#256628;
+        }
+
+        @media(max-width:992px){
+
+            .pricingCards{
+                grid-template-columns:1fr;
+                max-width:500px;
+                margin:auto;
+            }
+
+            .activeCard{
+                transform:none;
+            }
+
+            .paymentTitle h1{
+                font-size:44px;
+            }
+
+        }
+
+        @media(max-width:768px){
+
+            .paymentSection{
+                padding:30px 20px;
+            }
+
+            .paymentTitle h1{
+                font-size:34px;
+            }
+
+            .buttonChips{
+                width:100%;
+                max-width:300px;
+            }
+
+            .switch{
+                width:calc(50% - 6px);
+            }
+
+            .modalCard,
+            .successCard{
+                padding:25px;
+            }
+
+            .inputGrid{
+                grid-template-columns:1fr;
+            }
+
+            .successGif{
+                width:120px;
+            }
+
+        }
     </style>
 </head>
 <body>
@@ -248,7 +475,7 @@
                                 </p>
                             </div>
 
-                            <button id="btn-paymnt" class="btn-payment">Pembayaran</button>
+                            <button id="btn-payment" class="btn-payment">Pembayaran</button>
                             <button id="btn-trailer" class="btn-trailer">Tonton Trailer</button>
                         </div>
 
@@ -271,6 +498,61 @@
             </span>
         </div>
     </footer>
+
+    <div class="purchaseModal" id="purchaseModal">
+        <div class="modalCard">
+            <span class="closeModal">&times;</span>
+            <h2>Selesaikan Pembayaran</h2>
+            <p class="modalSubtitle">
+                Pesan Tiket Bioskop Sekarang!
+            </p>
+            <form id="purchaseForm">
+                <div class="inputGroup">
+                    <label>Nama Panjang</label>
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Nama Anda"
+                        required>
+                </div>
+                <div class="inputGrid">
+                    <div class="inputGroup">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            placeholder="Example@email.com"
+                            required>
+                    </div>
+                    <div class="inputGroup">
+                        <label>Nomor Telepon</label>
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            placeholder="+62 *********"
+                            required>
+                    </div>
+                </div>
+
+                <div class="inputGroup">
+                    <label>Payment Method</label>
+                    <select id="bank">
+                        <option disabled selected>
+                            Select Bank
+                        </option>
+                        <option>BCA</option>
+                        <option>Mandiri</option>
+                        <option>BNI</option>
+                        <option>BRI</option>
+                        <option>CIMB Niaga</option>
+                    </select>
+                </div>
+                <button class="purchaseBtn" type="submit">
+                    Pesan Sekarang
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script src="../main.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
