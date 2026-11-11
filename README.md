@@ -1,6 +1,6 @@
 # Bioskop Stefanus Suka Mundur
 
-Website bioskop sederhana berbasis **PHP native** dan **MySQL** yang menyediakan halaman login, registrasi, daftar jadwal film untuk pengguna, serta dashboard admin untuk melihat data pengguna.
+Website bioskop sederhana berbasis **PHP native** dan **MySQL** yang menyediakan halaman login, registrasi, daftar jadwal film untuk pengguna, pembookingan untuk film, serta dashboard admin untuk melihat data pengguna.
 
 Project ini dibuat sebagai tugas/eksplorasi pengembangan web dan dirancang untuk dijalankan secara lokal menggunakan **XAMPP**.
 
