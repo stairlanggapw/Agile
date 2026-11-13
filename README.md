@@ -1,4 +1,4 @@
-## Bioskop Stefanus Suka Mundur
+# Bioskop Stefanus Suka Mundur
 
 Website bioskop sederhana berbasis **PHP native** dan **MySQL** yang menyediakan halaman login, registrasi, daftar jadwal film untuk pengguna, pembookingan untuk film, serta dashboard admin untuk melihat data pengguna.
 
