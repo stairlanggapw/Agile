@@ -215,8 +215,8 @@
         .modalCard{
             width:100%;
             max-width:720px;
-            background: #5a5a5bff;
-            border-radius:25px;
+            background: #434343;
+            border: none;
             padding:40px;
             position:relative;
             animation:popup .35s;

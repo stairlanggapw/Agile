@@ -39,6 +39,7 @@ const paymentMethod = document.getElementById('paymentMethod');
 const paymentDate = document.getElementById('paymentDate');
 const productName = document.getElementById('productName');
 const invoiceNumber = document.getElementById('invoiceNumber');
+const purchaseBtn = document.querySelector('.purchaseBtn')
 
 if (purchaseModal) {
   btnPayment.forEach(btn => {
@@ -60,4 +61,8 @@ if (closeModal && purchaseModal) {
       lenis.start();
     }
   });
+}
+
+if (purchaseBtn){
+  
 }
