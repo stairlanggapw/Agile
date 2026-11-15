@@ -1,10 +1,6 @@
 <?php
     require_once dirname(__DIR__) . '/auth/auth.php';
-    require_once dirname(__DIR__) . '/../koneksi.php';
-
-    $query = mysqli_query($koneksi, "SELECT judul_film, durasi, genre FROM master_film");
-
-    $id_film = (int) $_GET['id_film'];
+    require_once dirname(__DIR__) . '/koneksi.php';
 
     $stmt = mysqli_prepare(
         $koneksi,

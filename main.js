@@ -39,7 +39,7 @@ const paymentMethod = document.getElementById('paymentMethod');
 const paymentDate = document.getElementById('paymentDate');
 const productName = document.getElementById('productName');
 const invoiceNumber = document.getElementById('invoiceNumber');
-const purchaseBtn = document.querySelector('.purchaseBtn')
+const purchaseBtn = document.getElementById('purchaseBtn')
 
 if (purchaseModal) {
   btnPayment.forEach(btn => {
@@ -63,6 +63,15 @@ if (closeModal && purchaseModal) {
   });
 }
 
-if (purchaseBtn){
-  
+if (purchaseForm) {
+  purchaseForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    alert('Pembelian berhasil!');
+
+    if (purchaseModal) {
+      purchaseModal.style.display = 'none';
+    }
+
+    purchaseForm.reset();
+  });
 }

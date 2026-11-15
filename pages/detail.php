@@ -282,97 +282,6 @@
             background:#e03f47ff;
         }
 
-        .successCard{
-            width:100%;
-            max-width:520px;
-            background:#ffffff;
-            border-radius:25px;
-            padding:40px;
-            position:relative;
-            text-align:center;
-            animation:popup .35s;
-            box-shadow:0 20px 50px rgba(0,0,0,.25);
-            overflow:hidden;
-        }
-
-        .successCard::before{
-            content:"";
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:6px;
-            background:linear-gradient(
-                90deg,
-                #2E7D32,
-                #43A047,
-                #66BB6A
-            );
-        }
-
-        .successIcon{
-            display:flex;
-            justify-content:center;
-            margin-bottom:20px;
-        }
-
-        .successGif{
-            width:150px;
-            display:block;
-        }
-
-        .successCard h2{
-            font-size:34px;
-            color:#2E7D32;
-            margin-bottom:10px;
-        }
-
-        .successText{
-            color:#666;
-            margin-bottom:30px;
-        }
-
-        .paymentInfo,
-        .productInfo{
-            background:#f8f8f8;
-            border-radius:18px;
-            padding:20px;
-            margin-bottom:20px;
-            text-align:left;
-        }
-
-        .paymentInfo h3,
-        .productInfo h3{
-            color:#2E7D32;
-            margin-bottom:15px;
-        }
-
-        .detailItem{
-            display:flex;
-            justify-content:space-between;
-            margin:12px 0;
-        }
-
-        .paid{
-            color:#2E7D32;
-            font-weight:bold;
-        }
-
-        #closeSuccess{
-            width:100%;
-            padding:15px;
-            border:none;
-            border-radius:50px;
-            background:#2E7D32;
-            color:white;
-            font-size:16px;
-            cursor:pointer;
-        }
-
-        #closeSuccess:hover{
-            background:#256628;
-        }
-
         @media(max-width:992px){
 
             .pricingCards{
@@ -475,8 +384,8 @@
                                 </p>
                             </div>
 
-                            <button id="btn-payment" class="btn-payment">Pembayaran</button>
-                            <button id="btn-trailer" class="btn-trailer">Tonton Trailer</button>
+                            <button type="button" class="btn-payment">Pembayaran</button>
+                            <button type="button" class="btn-trailer">Tonton Trailer</button>
                         </div>
 
                 <?php endwhile; ?>
@@ -547,7 +456,11 @@
                         <option>CIMB Niaga</option>
                     </select>
                 </div>
-                <button class="purchaseBtn" type="submit">
+                <button 
+                    id="purchaseBtn" 
+                    class="purchaseBtn" 
+                    type="submit"
+                >
                     Pesan Sekarang
                 </button>
             </form>
