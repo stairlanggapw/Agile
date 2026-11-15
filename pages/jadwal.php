@@ -18,6 +18,11 @@
             font-family: "Manrope", sans-serif;
         }
 
+        body{
+            background-color: #0a0a0a;
+            color: white;
+        }
+
         .navigation{
             display: flex;
             justify-content: space-between;
@@ -91,6 +96,40 @@
             transition-duration: 0.4s;
         }
         
+        .footer {
+            width: 100%;
+            background: #0b0b10;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px 6%;
+            color: #9898a6;
+            font-family: inherit;
+        }
+
+        .footer-content {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-content span:first-child {
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-content span:last-child {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .footer-content ion-icon {
+            font-size: 19px;
+            color: #9898a6;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -106,6 +145,17 @@
             <button><a href="../logout.php">Keluar</a></button>
         </ul>
     </nav>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span>&copy; <?= date('Y') ?> stairlanggapw. All rights reserved.</span>
+            <span>
+                <ion-icon name="logo-instagram"></ion-icon> 
+                <ion-icon name="logo-facebook"></ion-icon> 
+                <ion-icon name="logo-x"></ion-icon>
+            </span>
+        </div>
+    </footer>
 
     <script src="../main.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
