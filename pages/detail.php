@@ -385,7 +385,7 @@
                             </div>
 
                             <button type="button" class="btn-payment">Pembayaran</button>
-                            <button type="button" class="btn-trailer">Tonton Trailer</button>
+                            <button id="btn-trailer" type="button" class="btn-trailer">Tonton Trailer</button>
                         </div>
 
                 <?php endwhile; ?>

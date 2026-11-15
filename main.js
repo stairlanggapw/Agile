@@ -40,6 +40,7 @@ const paymentDate = document.getElementById('paymentDate');
 const productName = document.getElementById('productName');
 const invoiceNumber = document.getElementById('invoiceNumber');
 const purchaseBtn = document.getElementById('purchaseBtn')
+const btnTrailer = document.getElementById('btn-trailer')
 
 if (purchaseModal) {
   btnPayment.forEach(btn => {
@@ -51,6 +52,12 @@ if (purchaseModal) {
       }
     });
   });
+}
+
+if(btnTrailer){
+  btnTrailer.addEventListener('click', function(){
+    alert("Trailer belum ada untuk saat ini");
+  })
 }
 
 if (closeModal && purchaseModal) {
