@@ -232,11 +232,11 @@
                                     </td>
                                     <td class="cell-action">
                                         <a
-                                            href="./pages/detail.php?id_film=<?= (int) $d['id_film'] ?>"
+                                            href="./pages/edit.php?id_film=<?= (int) $d['id_film'] ?>"
                                             class="btn-book"
                                         >
                                             <ion-icon name="eye"></ion-icon>
-                                            <span>Lihat Detail</span>
+                                            <span>Edit Film</span>
                                         </a>
                                     </td>
                                 </tr>
